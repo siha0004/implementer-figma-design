@@ -1,0 +1,36 @@
+---
+import Procent from "../components/Procent.astro";
+import Topic from "../components/Topic.astro";
+import Text from "./Text.astro";
+---
+
+<section class="full-bleed">
+  <div>
+    <Text topic="Experience" heading="More than 25 years of experience">3000+ our clients are insured around the World</Text>
+    <div class="pcts">
+      <Procent pct="85" text="Consistency" />
+      <Procent pct="95" text="Improvement" />
+      <Procent pct="90" text="Branching" />
+    </div>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    section {
+      background-color: var(--brand);
+
+      display: grid;
+      grid-template-columns: subgrid;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        div.pcts {
+          display: flex;
+          gap: var(--space-l);
+        }
+      }
+    }
+  }
+</style>

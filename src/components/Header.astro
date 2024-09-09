@@ -3,141 +3,138 @@
 ---
 
 <header>
-  <a href="/" class="logo">AskExperts </a>
-  <nav>
-    <ul class="menu">
-      <li><a href="/#">Home</a></li>
-      <li><a href="/#">Case Study</a></li>
-      <li><a href="/#">Team</a></li>
-      <li><a href="/#">About</a></li>
-    </ul>
-    <div class="burger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-  </nav>
+  <div>
+    <a href="/" class="logo">AskExperts</a>
+    <nav>
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/case-study">Case Study</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+    <button>Login</button>
+  </div>
 </header>
 
 <style>
-  /***********************************  HEADER  ***********************************/
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 10%;
+  @layer components {
+    /***********************************  HEADER  ***********************************/
+    header {
+      background-color: var(--neutral-800);
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-2xl) 0;
 
-    background-color: rgba(27, 27, 27, 0.91);
-
-    /* position: relative;
+      /* position: relative;
     z-index: 10; */
-  }
+    }
 
-  .logo {
-    height: 50px;
-    width: auto;
-    border-radius: 0px;
-  }
+    nav {
+      display: flex;
+      align-items: center;
+    }
 
-  nav {
-    display: flex;
-    align-items: center;
-  }
+    .menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-  .menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+    .menu li {
+      margin-right: 1rem;
+    }
 
-  .menu li {
-    margin-right: 1rem;
-  }
+    .menu li:last-child {
+      margin-right: 0;
+    }
 
-  .menu li:last-child {
-    margin-right: 0;
-  }
-
-  .menu a {
-    display: block;
+    .menu a {
+      text-decoration: none;
+      color: var(--color-text-secondary);
+      /* display: block;
     padding: 1rem;
     color: var(--primary);
 
     text-transform: uppercase;
-    text-decoration: none;
+    
     transition: color 0.3s;
-    text-align: end;
-  }
-
-  .menu a:hover {
-    color: var(--accent);
-  }
-
-  .burger {
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-  }
-
-  .burger .line {
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary);
-    margin-bottom: 5px;
-    transition: 0.2s linear;
-  }
-  .burger {
-    display: none;
-  }
-  @media screen and (max-width: 800px) {
-    .menu {
-      display: none;
+    text-align: end; */
     }
-    .menu a {
-      padding: 1rem 0;
+
+    .menu a:hover {
+      color: var(--accent);
+    }
+
+    .burger {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .burger .line {
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+      margin-bottom: 5px;
+      transition: 0.2s linear;
     }
     .burger {
-      display: block;
+      display: none;
     }
-    .burger.active .line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-      transition: 0.2s linear;
-    }
-    /* Gør mid */
-    .burger .line:nth-child(2) {
-      opacity: 0;
-    }
+    @media screen and (max-width: 800px) {
+      .menu {
+        display: none;
+      }
+      .menu a {
+        padding: 1rem 0;
+      }
+      .burger {
+        display: block;
+      }
+      .burger.active .line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+        transition: 0.2s linear;
+      }
+      /* Gør mid */
+      .burger .line:nth-child(2) {
+        opacity: 0;
+      }
 
-    .burger.active .line:nth-child(2) {
-      opacity: 0;
-      transition: 0.15s linear;
-    }
+      .burger.active .line:nth-child(2) {
+        opacity: 0;
+        transition: 0.15s linear;
+      }
 
-    .burger.active .line:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-      transition: 0.2s linear;
-    }
+      .burger.active .line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+        transition: 0.2s linear;
+      }
 
-    nav.active .menu {
-      display: block;
-      background-color: var(--secondary);
-      opacity: 100%;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
+      nav.active .menu {
+        display: block;
+        background-color: var(--secondary);
+        opacity: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 
-    nav.active .menu li {
-      margin: 10px 10%;
-    }
-  }
-  @media (min-width: 800px) {
-    .logo {
-      height: 100px;
+      nav.active .menu li {
+        margin: 10px 10%;
+      }
     }
   }
 </style>

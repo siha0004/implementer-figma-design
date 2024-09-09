@@ -32,29 +32,28 @@ const { title = "AskExperts" } = Astro.props;
 </html>
 
 <style>
-  body {
-    --gap: 1rem;
-    --full: minmax(var(--gap), 1fr);
-    --content: minmax(0, 1200px);
+  @layer components {
+    body {
+      --gap: 1rem;
+      --full: minmax(var(--gap), 1fr);
+      --content: minmax(0, 1200px);
 
-    display: grid;
-    grid-template-columns:
-      [full-start] var(--full)
-      [content-start] var(--content) [content-end]
-      var(--full) [full-end];
+      display: grid;
+      grid-template-columns:
+        [full-start] var(--full)
+        [content-start] var(--content) [content-end]
+        var(--full) [full-end];
+      align-items: start;
 
-    > * {
-      grid-column: content;
-    }
+      > *,
+      * > .full-bleed {
+        grid-column: full;
+        display: grid;
+        grid: auto / subgrid;
 
-    header,
-    main,
-    footer {
-      grid-column: full;
-
-      display: subgrid;
-      > * {
-        grid-column: content;
+        > :not(&) {
+          grid-column: content;
+        }
       }
     }
   }

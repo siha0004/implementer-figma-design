@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { values } = Astro.props;
+// const { icon, title, description, link } = values;
+const { icon, title, description, link } = Astro.props;
+---
+
+<li>
+  <article>
+    <Icon name={icon} />
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <a href="#">Read More <span><Icon name="arrow_right" /></span></a>
+  </article>
+</li>
+
+<style>
+  @layer components {
+    li {
+      flex-basis: min(270px, 90%);
+      flex-shrink: 0;
+    }
+
+    article {
+      background: var(--neutral-100);
+      border-radius: var(--radius);
+      padding: var(--space-2xl) var(--space-l);
+
+      > :first-child {
+        width: 52px;
+        margin-bottom: var(--space-l);
+      }
+      h3 {
+        margin-bottom: var(--space-2xs);
+      }
+    }
+
+    a {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.6;
+      text-decoration: none;
+      margin-top: var(--space-l);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      span {
+        > :first-child {
+          width: 13px;
+        }
+      }
+    }
+  }
+</style>

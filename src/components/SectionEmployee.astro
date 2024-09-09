@@ -1,24 +1,29 @@
 ---
 import CardEmployee from "./CardEmployee.astro";
+import Text from "./Text.astro";
 
 const { data, theme = "light" } = Astro.props;
 ---
 
 <section data-theme={theme}>
-  <!-- {data.map((employee) => <CardEmployee {employee} />)} -->
+  <Text topic="Our team" heading="We champion the bold to achieve the extraordinary">Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team.</Text>
+
+  <ul role="list">
+    {data.map((employee) => <CardEmployee {employee} />)}
+  </ul>
 </section>
 
 <style>
-  /* [data-theme="dark"] {
-    --bg-section: red;
-    --text-section: #fff;
-    --bg-card: blue;
-    --text-card: #fff;
+  @layer components {
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3xl);
+      margin: var(--space-4xl) 0;
+    }
+    ul {
+      display: flex;
+      gap: var(--space-3xl);
+    }
   }
-
-  section {
-    padding: 2rem;
-    color: var(--text-section, green);
-    background: var(--bg-section, yellow);
-      } */
 </style>

@@ -1,0 +1,64 @@
+---
+const { type, link } = Astro.props;
+---
+
+<a class={"button " + type} href={link}>
+  <slot />
+</a>
+
+<style>
+  @layer components {
+    .button {
+      color: var(--color-button-text-primary);
+      text-decoration: none;
+
+      background-color: var(--color-button-primary);
+      border-radius: var(--radius-round);
+      border: 2px solid transparent;
+
+      padding: var(--space-s) var(--space-2xl);
+      display: block;
+      width: fit-content;
+      height: fit-content;
+
+      &:visited {
+        color: var(--color-button-text-primary);
+      }
+
+      &:hover {
+        color: var(--color-button-text-secondary);
+        background-color: var(--color-button-secondary);
+      }
+    }
+
+    .secondary {
+      color: var(--color-button-text-secondary);
+      background-color: var(--color-button-secondary);
+
+      &:visited {
+        color: var(--color-button-text-secondary);
+      }
+
+      &:hover {
+        color: var(--color-button-text-primary);
+        background-color: transparent;
+        border: 2px solid var(--color-button-secondary);
+      }
+    }
+
+    .tertiary {
+      color: var(--color-button-text-tertiary);
+      background-color: var(--color-button-tertiary);
+
+      &:visited {
+        color: var(--color-button-text-tertiary);
+      }
+
+      &:hover {
+        color: var(--color-button-tertiary);
+        background-color: transparent;
+        border: 2px solid var(--color-button-tertiary);
+      }
+    }
+  }
+</style>

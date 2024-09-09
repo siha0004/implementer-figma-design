@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { icon, title } = Astro.props;
+---
+
+<li>
+  <div class="icon">
+    <Icon name={icon} />
+  </div>
+  <div class="text">
+    <p>{title}</p>
+    <h4>
+      <slot />
+    </h4>
+  </div>
+</li>
+
+<style>
+  @layer components {
+    li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-s);
+    }
+    .icon {
+      aspect-ratio: 1;
+      width: 53px;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3xs);
+
+      .highlight {
+      }
+    }
+  }
+</style>

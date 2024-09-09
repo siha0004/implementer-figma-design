@@ -1,0 +1,92 @@
+---
+
+---
+
+<article>
+  <div>
+    <h2>Subscribe Our Newsletter</h2>
+    <p>Build stronger Customer Relationships with <strong>Consultalk</strong></p>
+  </div>
+  <form>
+    <input type="email" name="email" placeholder="your mail address" autocomplete="email" required />
+    <input type="submit" value="Subscribe" class="submit" />
+  </form>
+</article>
+
+<style>
+  @layer components {
+    article {
+      background-color: var(--neutral-900);
+      padding: var(--space-4xl);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-l);
+      position: relative;
+      overflow: clip;
+      margin: var(--space-5xl) 0;
+
+      h2 {
+        color: var(--color-heading-secondary);
+      }
+      p {
+        color: var(--color-text-secondary);
+      }
+      div {
+        z-index: 3;
+      }
+
+      /* MANGLER  'container-type: inline-size;' */
+      /* @container (width > 700px) {
+        flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      } */
+
+      &::after {
+        content: "";
+        height: 100%;
+        width: 50%;
+        border-radius: var(--radius);
+        background: var(--accent);
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        right: 2rem;
+        rotate: -45deg;
+        transform-origin: right top;
+        z-index: 2;
+      }
+
+      &::before {
+        --square-count: 12;
+        --square-size: 1.34rem;
+
+        --_square-size: var(--square-size, 1rem);
+        --_square-half: calc(var(--square-size) / 2);
+        --_square-sum: calc(var(--square-count) * var(--square-size));
+        z-index: 1;
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: 0 0;
+        inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
+        aspect-ratio: 0.7;
+        background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
+        mask:
+          var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+          var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+        /*clip-path: polygon(-3% 0%, 100% 0%, 100% 103%);*/
+        rotate: -45deg;
+        opacity: 50%;
+      }
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      gap: var(--space-m);
+    }
+  }
+</style>

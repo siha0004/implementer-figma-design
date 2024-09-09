@@ -1,0 +1,31 @@
+---
+const { number } = Astro.props;
+---
+
+<div>
+  <h3>
+    {number}+
+  </h3>
+  <p>
+    <slot />
+  </p>
+</div>
+
+<style>
+  @layer components {
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    h3 {
+      font-size: var(--h1);
+    }
+
+    p {
+      font-size: var(--step-0);
+    }
+  }
+</style>

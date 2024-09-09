@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+const { icon, title, description, link } = Astro.props;
+---
+
+<li>
+  <article>
+    <Icon name={icon} />
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </article>
+</li>
+
+<style>
+  @layer components {
+    li {
+      flex-basis: min(400px, 90%);
+      flex-shrink: 0;
+    }
+
+    article {
+      background: var(--neutral-300);
+      border-radius: var(--radius);
+      padding: var(--space-2xl) var(--space-xl);
+
+      > :first-child {
+        width: 36px;
+        margin-bottom: var(--space-l);
+      }
+      h3 {
+        margin-bottom: var(--space-xs);
+      }
+    }
+
+    .focus {
+      background: var(--neutral-900);
+      /* SVG styling til gult icon mangler */
+      h3,
+      p {
+        color: var(--color-text-secondary);
+      }
+    }
+  }
+</style>

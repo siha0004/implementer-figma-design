@@ -1,0 +1,24 @@
+---
+import Topic from "./Topic.astro";
+
+const { topic, heading, topic_hide } = Astro.props;
+---
+
+<article class={"text " + topic_hide}>
+  <Topic>{topic}</Topic>
+  <h2>{heading}</h2>
+
+  <p><slot /></p>
+</article>
+
+<style>
+  @layer components {
+    h2 {
+      margin-top: var(--space-m);
+    }
+
+    .hide > :first-child {
+      display: none;
+    }
+  }
+</style>

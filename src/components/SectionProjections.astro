@@ -1,0 +1,45 @@
+---
+import ScrollingContainer from "./ScrollingContainer.astro";
+import Text from "./Text.astro";
+import Controls from "./Controls.astro";
+---
+
+<section>
+  <div class="info">
+    <Text topic_hide="hide" heading="Financial Projections"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ex alias ut eius amet eaque vero sed, hic illo soluta tenetur facilis magnam doloribus sunt est sapiente necessitatibus natus pariatur. </Text>
+    <Controls />
+  </div>
+  <ScrollingContainer />
+</section>
+
+<style>
+  @layer {
+    section {
+      background: var(--color-bg-secondary);
+      grid-column: full;
+      display: grid;
+      grid-template-columns: inherit;
+      row-gap: var(--space-m);
+
+      > * {
+        grid-column: content;
+      }
+      > ul {
+        grid-column: full;
+        padding-inline: max(1rem, 50% - var(--content-width) / 2);
+        scroll-snap-type: x mandatory;
+
+        li {
+          /* For den til at snappe til centeret af cardet, når man scroller (tydeligst i mobil) */
+          scroll-snap-align: center;
+        }
+      }
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+      }
+    }
+  }
+</style>

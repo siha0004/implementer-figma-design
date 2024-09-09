@@ -1,0 +1,41 @@
+---
+import Text from "./Text.astro";
+import CardValues from "./CardValues.astro";
+import Button from "./Button.astro";
+
+const { data, theme = "light" } = Astro.props;
+---
+
+<section data-theme={theme} class="full-bleed">
+  <div>
+    <Text topic="Growing with our Clients" heading="Our core values & principles"> Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps. </Text>
+    <Button type="secondary">Get in touch</Button>
+  </div>
+  <ul role="list">
+    <!-- {data.map((values) => <CardValues {values} />)} -->
+    <CardValues icon="stack" title="Creative Ideas" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam." />
+    <CardValues icon="stack" title="Best Features" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+    <CardValues icon="experience" title="Experience" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam." />
+    <CardValues icon="gear" title="Easy Solutions" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+  </ul>
+</section>
+
+<style>
+  @layer components {
+    section {
+      background: var(--color-bg-secondary);
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2xl);
+    }
+  }
+</style>

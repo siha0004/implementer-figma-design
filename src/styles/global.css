@@ -20,6 +20,12 @@
     --step-2: clamp(1.25rem, 1.1145rem + 0.578vw, 1.5625rem);
     /* 18-20 */
     --step-1: clamp(1.125rem, 1.0708rem + 0.2312vw, 1.25rem);
+    /* 16-18 */
+    --step-0: clamp(1rem, 0.9458rem + 0.2312vw, 1.125rem);
+    /* 12-16 */
+    --step--1: clamp(0.75rem, 0.6416rem + 0.4624vw, 1rem);
+    /* 24-30 */
+    --step-logo: clamp(1.5rem, 1.3374rem + 0.6936vw, 1.875rem);
 
     /* Font size Semantics*/
     --h1: var(--step-4);
@@ -28,19 +34,22 @@
     --h4: var(--step-1);
 
     /* Spacing */
-    --space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
-    --space-2xs: clamp(0.5rem, 0.5rem + 0vw, 0.5rem);
-    --space-xs: clamp(0.75rem, 0.75rem + 0vw, 0.75rem);
-    --space-s: clamp(1rem, 1rem + 0vw, 1rem);
-    --space-m: clamp(1.25rem, 1.25rem + 0vw, 1.25rem);
-    --space-l: clamp(1.5rem, 1.5rem + 0vw, 1.5rem);
-    --space-xl: clamp(2rem, 2rem + 0vw, 2rem);
-    --space-2xl: clamp(2.5rem, 2.5rem + 0vw, 2.5rem);
-    --space-3xl: clamp(3rem, 3rem + 0vw, 3rem);
-    --space-4xl: clamp(4rem, 4rem + 0vw, 4rem);
+    --space-3xs: clamp(0.1875rem, 0.1604rem + 0.1156vw, 0.25rem);
+    --space-2xs: clamp(0.3125rem, 0.2312rem + 0.3468vw, 0.5rem);
+    --space-xs: clamp(0.5rem, 0.3916rem + 0.4624vw, 0.75rem);
+    --space-s: clamp(0.625rem, 0.4624rem + 0.6936vw, 1rem);
+    --space-m: clamp(0.8125rem, 0.6228rem + 0.8092vw, 1.25rem);
+    --space-l: clamp(0.9375rem, 0.6936rem + 1.0405vw, 1.5rem);
+    --space-xl: clamp(1.25rem, 0.9249rem + 1.3873vw, 2rem);
+    --space-2xl: clamp(1.5625rem, 1.1561rem + 1.7341vw, 2.5rem);
+    --space-3xl: clamp(1.875rem, 1.3873rem + 2.0809vw, 3rem);
+    --space-4xl: clamp(2.5rem, 1.8497rem + 2.7746vw, 4rem);
+    --space-5xl: clamp(5rem, 3.6994rem + 5.5491vw, 8rem);
 
     /* Radius */
     --radius: 20px;
+    --radius-img: 30px;
+    --radius-round: 999px;
 
     /* Color Primitives */
     --neutral-900: #181818;
@@ -49,10 +58,12 @@
     --neutral-400: #dadada;
     --neutral-300: #ebebeb;
     --neutral-200: #f5f5f5;
+    --neutral-100-85: rgba(255, 255, 255, 0.85);
     --neutral-100: #ffffff;
 
     --accent: rgba(78, 175, 78, 1);
     --brand: rgba(255, 204, 74, 1);
+    --brand-darker: #daae3c;
 
     /* Color Semantics*/
     --color-bg-primary: var(--neutral-100);
@@ -66,10 +77,15 @@
 
     --color-button-primary: var(--brand);
     --color-button-secondary: var(--neutral-900);
+    --color-button-tertiary: var(--neutral-100);
     --color-button-text-primary: var(--neutral-900);
     --color-button-text-secondary: var(--neutral-100);
+    --color-button-text-tertiary: var(--neutral-900);
 
     --color-divider: var(--neutral-400);
+
+    /* Patterns*/
+    --square-pattern: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="red"><path d="M7.47662 4.02206C6.50635 3.05178 5.53232 2.07774 4.56205 1.10745C4.28482 0.83023 3.80905 0.83023 3.53183 1.10745C2.56155 2.07774 1.59128 3.04803 0.621002 4.02206C0.343781 4.29929 0.343781 4.77506 0.621002 5.05229C1.59128 6.02258 2.5653 6.99661 3.53558 7.9669C3.8128 8.24412 4.28857 8.24412 4.56579 7.9669C5.53607 6.99661 6.51009 6.02258 7.48037 5.05229C7.63022 4.90244 7.69016 4.73011 7.69016 4.56527C7.69016 4.55403 7.69016 4.54654 7.69016 4.5353C7.69016 4.52781 7.69016 4.51657 7.69016 4.50908C7.69016 4.34424 7.63022 4.17191 7.47662 4.02206ZM4.04881 6.41968C3.41944 5.79031 2.79382 5.16468 2.16445 4.5353C2.79382 3.90593 3.41944 3.2803 4.04881 2.65092C4.67818 3.2803 5.3038 3.90593 5.93317 4.5353C5.3038 5.16468 4.67818 5.79031 4.04881 6.41968Z"/></svg>');
 
     /********* Default styling *********/
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -78,7 +94,8 @@
     line-height: 1.5;
   }
 
-  h1 {
+  h1,
+  .h1 {
     color: var(--color-heading-primary);
     font-family: var(--font-display);
     font-size: var(--h1);
@@ -86,15 +103,18 @@
     line-height: 1.16;
   }
 
-  h2 {
+  h2,
+  .h2 {
     color: var(--color-heading-primary);
     font-family: var(--font-display);
     font-size: var(--h2);
     font-weight: 700;
     line-height: 1.16;
+    margin-bottom: var(--space-xs);
   }
 
-  h3 {
+  h3,
+  .h3 {
     color: var(--color-heading-primary);
     font-family: var(--font-display);
     font-size: var(--h3);
@@ -102,12 +122,21 @@
     line-height: 1.16;
   }
 
-  h4 {
+  h4,
+  .h4 {
     color: var(--color-heading-primary);
     font-family: var(--font-display);
     font-size: var(--h4);
     font-weight: 600;
     line-height: 1.16;
+  }
+
+  small {
+    font-size: var(--step--1);
+  }
+
+  p {
+    max-width: 65ch;
   }
 
   /************* LINK + BUTTON *************/
@@ -124,5 +153,47 @@
     background: var(--brand);
     padding: var(--space-3xs) var(--space-s);
     border-radius: 100px;
+  }
+
+  .logo {
+    color: var(--neutral-100);
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    /* line-height: 105%; 31.5px */
+  }
+
+  /* FORMS */
+  input {
+    color: var(--text-body-primary);
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-round);
+    border: 1px solid #e3e3e3;
+    padding: var(--space-m) var(--space-xl);
+    /* line-height: 1; */
+
+    &:focus {
+      border: var(--border_m) solid var(--primary_700);
+      outline: none;
+    }
+
+    /* BUTTON STYLING */
+    &.submit {
+      background-color: var(--color-button-primary);
+      border: none;
+      cursor: pointer;
+      padding: var(--space-s) var(--space-2xl);
+
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+    &.sumbit:hover {
+      background-color: var(--color-button-tertiary);
+    }
+  }
+
+  section {
+    padding: var(--space-4xl) 0;
   }
 }

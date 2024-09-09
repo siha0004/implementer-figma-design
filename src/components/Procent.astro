@@ -1,0 +1,64 @@
+---
+const { pct, text } = Astro.props;
+---
+
+<article>
+  <div class="parent" style="--percent: 25%">
+    <div class="child"></div>
+    {pct}%
+  </div>
+  <h3>{text}</h3>
+</article>
+
+<style>
+  @layer components {
+    article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-l);
+    }
+
+    .parent {
+      aspect-ratio: 1;
+      width: 200px;
+      border-radius: 1e5px;
+      margin-inline: auto;
+
+      --offset-pos: 5px;
+      /*animation: --pie 3s linear infinite;*/
+      border: var(--offset-pos) solid transparent;
+      background:
+        linear-gradient(var(--brand), var(--brand)) padding-box,
+        radial-gradient(circle at 0% 0%, red 5px, transparent 0) border-box,
+        conic-gradient(var(--neutral-100) var(--percent), var(--brand-darker) 0) border-box;
+      position: relative;
+
+      font-family: var(--font-display);
+      font-size: var(--h1);
+      font-weight: 700;
+      text-align: center;
+      align-content: center;
+
+      .child {
+        aspect-ratio: 1;
+        border-radius: 99px;
+        width: 20px;
+        background: var(--neutral-900);
+        border: 3.5px solid var(--neutral-100);
+        position: absolute;
+        offset-path: border-box;
+        offset-distance: var(--percent);
+        offset-anchor: 50% calc(50% - var(--offset-pos) / 2);
+      }
+      p {
+      }
+    }
+
+    /*@keyframes --pie {
+  to {
+    --percent: 100%;
+  }
+}*/
+  }
+</style>

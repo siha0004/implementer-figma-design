@@ -1,0 +1,26 @@
+---
+const { type } = Astro.props;
+---
+
+<p class={type}>
+  <slot />
+</p>
+
+<style>
+  @layer components {
+    p {
+      display: inline;
+      background-color: var(--brand);
+      border-radius: var(--radius-round);
+
+      padding: 1px var(--space-s);
+      text-transform: uppercase;
+      letter-spacing: 2.32px;
+    }
+
+    .white {
+      background-color: var(--neutral-100);
+      color: var(--neutral-900);
+    }
+  }
+</style>

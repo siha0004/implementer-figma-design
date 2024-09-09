@@ -1,0 +1,41 @@
+---
+import Grid2Col from "../components/Grid2col.astro";
+import Info from "../components/Info.astro";
+import Text from "../components/Text.astro";
+---
+
+<section>
+  <div>
+    <Text topic="Process" heading="Contact Us. It’s Easy."> Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative. </Text>
+
+    <ul>
+      <Info icon="phone" name="Call Today">+1 800 100 900</Info>
+      <Info icon="clock" name="Monday To Friday"> 9AM - 5PM </Info>
+      <Info icon="place" name="USA Office"> 195 Devonshire St Boston, MA 02110 </Info>
+    </ul>
+  </div>
+  <Grid2Col />
+</section>
+
+<style>
+  @layer components {
+    section {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2rem;
+
+      > :first-child {
+        grid-column: 1 / 6;
+      }
+
+      > :last-child {
+        grid-column: 7 / -1;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
+      }
+    }
+  }
+</style>

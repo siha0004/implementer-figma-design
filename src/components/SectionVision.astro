@@ -1,0 +1,45 @@
+---
+import Text from "./Text.astro";
+import ImageAbout from "../components/ImageAbout.astro";
+import Numbers from "./Numbers.astro";
+---
+
+<section>
+  <div class="info">
+    <div>
+      <Text topic="OUR VISION" heading="Turn your ideas into reality."> Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps. </Text>
+      <ul>
+        <li>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</li>
+        <li>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</li>
+      </ul>
+    </div>
+    <ImageAbout />
+  </div>
+  <ul class="numbers">
+    <Numbers number="1128">Successful Work</Numbers>
+    <Numbers number="908">Team member</Numbers>
+    <Numbers number="258">Happy Customers</Numbers>
+    <Numbers number="564">Creative Idea</Numbers>
+  </ul>
+</section>
+
+<style>
+     section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-l);
+
+      .info {
+display: flex;
+gap: var(--space-m);
+      align-items: start;
+
+      }
+
+.numbers {
+    display: flex;
+justify-content: space-around;
+}
+    }
+  }
+</style>

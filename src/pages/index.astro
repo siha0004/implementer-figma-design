@@ -1,5 +1,26 @@
 ---
 import MainLayouts from "../layouts/MainLayouts.astro";
+
+import SectionProjections from "../components/SectionProjections.astro";
+import SectionExpect from "../components/SectionExpect.astro";
+import SectionExperience from "../components/SectionExperience.astro";
+import SectionProcess from "../components/SectionProcess.astro";
 ---
 
-<MainLayouts title="Home" />
+<MainLayouts title="Home">
+  <SectionExpect />
+  <SectionProjections />
+  <SectionExperience />
+  <SectionProcess />
+</MainLayouts>
+<style>
+  @layer components {
+    h2 {
+      margin-top: var(--space-l);
+    }
+    section {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>

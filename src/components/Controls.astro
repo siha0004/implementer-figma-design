@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="controls">
+  <button><Icon name="arrow_left" /></button>
+  <button><Icon name="arrow_right" /></button>
+</div>
+
+<style>
+  @layer components {
+    div {
+      display: flex;
+      gap: var(--space-m);
+
+      > * {
+        width: 4.34rem;
+      }
+
+      button {
+        background: none;
+        padding: 0;
+        border-radius: 0;
+      }
+    }
+  }
+</style>
