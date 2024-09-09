@@ -22,7 +22,8 @@ const { data, theme = "light" } = Astro.props;
       margin: var(--space-4xl) 0;
     }
     ul {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: var(--space-3xl);
     }
   }
