@@ -8,12 +8,12 @@ const { data, theme = "light" } = Astro.props;
 
 <section data-theme={theme} class="full-bleed">
   <div>
-    <Text topic="Growing with our Clients" heading="Our core values & principles"> Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps. </Text>
-    <Button type="secondary">Get in touch</Button>
+    <Text theme={theme} topic="Growing with our Clients" heading="Our core values & principles"> Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps. </Text>
+    <Button theme={theme} type="secondary">Get in touch</Button>
   </div>
   <ul role="list">
     <!-- {data.map((values) => <CardValues {values} />)} -->
-    <CardValues icon="stack" title="Creative Ideas" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam." />
+    <CardValues theme={theme} icon="stack" title="Creative Ideas" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam." />
     <CardValues icon="stack" title="Best Features" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
     <CardValues icon="experience" title="Experience" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam." />
     <CardValues icon="gear" title="Easy Solutions" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
@@ -22,8 +22,13 @@ const { data, theme = "light" } = Astro.props;
 
 <style>
   @layer components {
+    [data-theme="dark"] {
+      --section-bg: var(--neutral-900);
+      --section-txt: var(--neutral-100);
+      --section-icon: var(--neutral-100);
+    }
     section {
-      background: var(--color-bg-secondary);
+      background: var(--section-bg, var(--color-bg-secondary));
     }
 
     div {

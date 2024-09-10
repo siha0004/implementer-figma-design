@@ -1,11 +1,11 @@
 ---
 import Topic from "./Topic.astro";
 
-const { topic, heading, topic_hide, theme } = Astro.props;
+const { topic, heading, topic_hide, topicColor, theme } = Astro.props;
 ---
 
 <article class={"text " + topic_hide} data-theme={theme}>
-  <Topic>{topic}</Topic>
+  <Topic color={topicColor}>{topic}</Topic>
   <h2>{heading}</h2>
 
   <p><slot /></p>
