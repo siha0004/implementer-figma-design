@@ -1,8 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
-const { icon, title, description, link } = Astro.props;
----
+const { projection } = Astro.props;
+const { icon, title, description, link } = projection;
 
+---
+ 
 <li>
   <article>
     <Icon name={icon} />

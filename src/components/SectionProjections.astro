@@ -2,14 +2,17 @@
 import ScrollingContainer from "./ScrollingContainer.astro";
 import Text from "./Text.astro";
 import Controls from "./Controls.astro";
+
+const projectionsData = await fetch("https://raw.githubusercontent.com/siha0004/frontend-design/main/resources/json/projections.json").then((res) => res.json());
+
 ---
 
-<section>
+<section >
   <div class="info">
     <Text topic_hide="true" heading="Financial Projections"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ex alias ut eius amet eaque vero sed, hic illo soluta tenetur facilis magnam doloribus sunt est sapiente necessitatibus natus pariatur. </Text>
     <Controls />
   </div>
-  <ScrollingContainer />
+  <ScrollingContainer data={projectionsData}/>
 </section>
 
 <style>

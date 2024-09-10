@@ -1,7 +1,7 @@
 ---
 import CardProjections from "./CardProjections.astro";
 
-const { cardContent } = Astro.props;
+// const { data, cardContent } = Astro.props;
 ---
 
 <ul role="list">
@@ -13,12 +13,12 @@ const { cardContent } = Astro.props;
       </li>
     ))
   } -->
+      <!-- {data.map((projection) => <CardEmployee {projection} />)} -->
 
-  <CardProjections icon="balance-sheet" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
-  <CardProjections icon="balance-sheet" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
-  <CardProjections icon="balance-sheet" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
-  <CardProjections icon="balance-sheet" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
-  <CardProjections icon="balance-sheet" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
+  <!-- <CardProjections icon="balance-sheet" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
+  <CardProjections icon="income-statement" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
+  <CardProjections icon="financial-plan" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
+  <CardProjections icon="financial-ratios" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." /> -->
 </ul>
 
 <style>
