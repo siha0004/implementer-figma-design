@@ -3,7 +3,7 @@
 ---
 
 <header>
-  <div>
+  <div class="header">
     <a href="/" class="logo">AskExperts</a>
     <nav>
       <ul class="menu">
@@ -18,9 +18,13 @@
         <div class="line"></div>
       </div>
     </nav>
-    <button>Login</button>
+    <button popovertarget="login_popup">Login</button>
+    
   </div>
 </header>
+<div popover id="login_popup">
+      Tester
+    </div>
 
 <style>
   @layer components {
@@ -28,7 +32,15 @@
     header {
       background-color: var(--neutral-800);
     }
-    div {
+
+#login_popup{
+  &::backdrop {
+  background-color: #0004;
+  backdrop-filter: blur(4px);
+}
+}
+
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
