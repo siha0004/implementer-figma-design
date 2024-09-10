@@ -1,13 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { values } = Astro.props;
+// const { values } = Astro.props;
 // const { icon, title, description, link } = values;
 const { icon, title, description, link } = Astro.props;
+const { data, theme = "light" } = Astro.props;
 ---
 
 <li>
-  <article>
+  <article data-theme={theme}>
     <Icon name={icon} />
     <h3>{title}</h3>
     <p>{description}</p>
@@ -22,32 +23,42 @@ const { icon, title, description, link } = Astro.props;
       flex-shrink: 0;
     }
 
+    [data-theme="dark"] {
+      --card-bg: var(--color-bg-secondary);
+    }
+
     article {
-      background: var(--neutral-100);
+      background: var(--card-bg, var(--neutral-100));
+      color: var(--card-txt, var(--color-text-primary));
       border-radius: var(--radius);
       padding: var(--space-2xl) var(--space-l);
 
-      > :first-child {
+      [data-icon] {
         width: 52px;
         margin-bottom: var(--space-l);
+        color: var(--card-icon, var(--neutral-900));
       }
+
       h3 {
         margin-bottom: var(--space-2xs);
+        color: var(--card-heading, var(--color-heading-primary));
       }
-    }
 
-    a {
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.6;
-      text-decoration: none;
-      margin-top: var(--space-l);
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      span {
-        > :first-child {
-          width: 13px;
+      a {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.6;
+        text-decoration: none;
+        margin-top: var(--space-l);
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        span {
+          [data-icon] {
+            width: 23px;
+            margin: 0;
+            padding: 0;
+          }
         }
       }
     }
