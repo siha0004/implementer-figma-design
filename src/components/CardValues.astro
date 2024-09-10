@@ -12,7 +12,7 @@ const { data, theme = "light" } = Astro.props;
     <Icon name={icon} />
     <h3>{title}</h3>
     <p>{description}</p>
-    <a href="#">Read More <span><Icon name="arrow_right" /></span></a>
+    <h4><a href="#">Read More <span><Icon name="arrow" /></span></a></h4>
   </article>
 </li>
 
@@ -44,18 +44,24 @@ const { data, theme = "light" } = Astro.props;
         color: var(--card-heading, var(--color-heading-primary));
       }
 
-      a {
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 1.6;
+      h4 > a {
+        color: currentcolor;
         text-decoration: none;
+
         margin-top: var(--space-l);
         display: flex;
         align-items: center;
         gap: var(--space-xs);
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+        }
+
         span {
           [data-icon] {
-            width: 23px;
+            width: 13px;
             margin: 0;
             padding: 0;
           }
