@@ -117,19 +117,28 @@ if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/
         display: flex;
         flex-direction: column;
 
+        --space: var(--space-4xl);
+
         .info {
           display: flex;
-          gap: var(--space-l);
-          align-items: center;
+          gap: var(--space);
+          align-items: start;
+
+          hr {
+            rotate: 90deg;
+            width: clamp(1.3125rem, 1.0957rem + 0.9249vw, 1.8125rem);
+            margin: 0;
+            display: none;
+          }
 
           ul {
             border-left: 1px solid var(--color-divider);
             display: flex;
             gap: var(--space-l);
-            padding-left: var(--space-l);
+            padding-left: var(--space);
 
             [data-icon] {
-              font-size: var(--step-2);
+              font-size: clamp(1.3125rem, 1.0957rem + 0.9249vw, 1.8125rem);
             }
           }
         }
