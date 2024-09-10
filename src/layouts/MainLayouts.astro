@@ -36,7 +36,7 @@ const { title = "AskExperts" } = Astro.props;
     body {
       --gap: 1rem;
       --full: minmax(var(--gap), 1fr);
-      --content: minmax(0, 1200px);
+      --content: minmax(0, var(--content-width));
 
       display: grid;
       grid-template-columns:

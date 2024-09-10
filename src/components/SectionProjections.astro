@@ -8,7 +8,7 @@ import Controls from "./Controls.astro";
 const { data } = Astro.props;
 ---
 
-<section>
+<section class="full-bleed">
   <Icon name="financial" />
   <div class="info">
     <Text topic_hide="true" heading={data.title}> {data.subtitle} </Text>
@@ -25,20 +25,6 @@ const { data } = Astro.props;
       display: grid;
       grid-template-columns: inherit;
       row-gap: var(--space-m);
-
-      > * {
-        grid-column: content;
-      }
-      > ul {
-        grid-column: full;
-        padding-inline: max(1rem, 50% - var(--content-width) / 2);
-        scroll-snap-type: x mandatory;
-
-        li {
-          /* For den til at snappe til centeret af cardet, når man scroller (tydeligst i mobil) */
-          scroll-snap-align: center;
-        }
-      }
 
       [data-icon="financial"] {
         width: 100px;

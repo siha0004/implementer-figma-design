@@ -7,6 +7,8 @@
   html {
     /********* Variables *********/
 
+    --content-width: 1200px;
+
     /* Fonts*/
     --font-display: "Cabin", system-ui;
     --font-body: "Lato", system-ui;
