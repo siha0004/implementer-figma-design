@@ -1,8 +1,8 @@
 ---
-const { color } = Astro.props;
+const { color,hide } = Astro.props;
 ---
 
-<p data-color={color}>
+<p data-color={color} data-hide={hide}>
   <slot />
 </p>
 
@@ -16,8 +16,12 @@ const { color } = Astro.props;
       --topic-bg: var(--accent);
       --topic-txt: var(--neutral-100);
     }
+
+    [data-hide="true"]{
+      --display: none;
+    }
     p {
-      display: inline;
+      display: var(--display,inline);
       background-color: var(--topic-bg, var(--brand));
       border-radius: var(--radius-round);
       padding: 1px var(--space-s);
