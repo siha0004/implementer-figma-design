@@ -1,10 +1,10 @@
 ---
 import Topic from "./Topic.astro";
 
-const { topic, heading, topic_hide } = Astro.props;
+const { topic, heading, topic_hide, theme } = Astro.props;
 ---
 
-<article class={"text " + topic_hide}>
+<article class={"text " + topic_hide} data-theme={theme}>
   <Topic>{topic}</Topic>
   <h2>{heading}</h2>
 
@@ -13,6 +13,14 @@ const { topic, heading, topic_hide } = Astro.props;
 
 <style>
   @layer components {
+    [data-theme="dark"] {
+      --text-color: var(--color-heading-secondary);
+    }
+
+    p,
+    h2 {
+      color: var(--text-color, var(--color-heading-primary));
+    }
     h2 {
       margin-top: var(--space-m);
     }
