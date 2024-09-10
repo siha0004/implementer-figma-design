@@ -3,7 +3,7 @@
 ---
 
 <header>
-  <div>
+  <div class="header">
     <a href="/" class="logo">AskExperts</a>
     <nav>
       <ul class="menu">
@@ -18,9 +18,17 @@
         <div class="line"></div>
       </div>
     </nav>
-    <button>Login</button>
+    <button popovertarget="login_popup">Login</button>
   </div>
 </header>
+<div popover id="login_popup">
+  <h2>Dashboard Login</h2>
+  <form>
+    <input type="email" name="email" placeholder="Enter Email" autocomplete="email" />
+    <input type="password" name="password" placeholder="Enter Password" autocomplete="password" />
+    <input type="submit" value="Go to dashboard" class="submit" />
+  </form>
+</div>
 
 <style>
   @layer components {
@@ -28,7 +36,39 @@
     header {
       background-color: var(--neutral-800);
     }
-    div {
+
+    #login_popup {
+      background-color: var(--neutral-900);
+      padding: var(--space-2xl) var(--space-3xl);
+      border-radius: var(--radius);
+
+      display: none;
+      &:popover-open {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
+      }
+      h2 {
+        color: var(--color-heading-secondary);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-m);
+        align-items: center;
+
+        input {
+        }
+      }
+      &::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+
+        backdrop-filter: blur(16px);
+      }
+    }
+
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
