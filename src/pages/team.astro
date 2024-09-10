@@ -6,7 +6,7 @@ import SectionEmployee from "../components/SectionEmployee.astro";
 const employeeData = await fetch("https://raw.githubusercontent.com/siha0004/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 ---
 
-<MainLayouts>
+<MainLayouts title="Team">
   <HeroMain />
   <SectionEmployee data={employeeData} />
 </MainLayouts>
