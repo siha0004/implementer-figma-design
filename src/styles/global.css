@@ -137,9 +137,9 @@
     font-size: var(--step--1);
   }
 
-  p {
+  /* p {
     max-width: 65ch;
-  }
+  } */
 
   /************* LINK + BUTTON *************/
   a {
