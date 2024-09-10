@@ -19,7 +19,7 @@ if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/
 
     <div>
       <h3>
-        <a href="#">{name}</a>
+        <a href={`/employee/${employee.slug}`}>{name}</a>
       </h3>
       <p>{description}</p>
       <ul role="list">
