@@ -68,12 +68,47 @@ if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: var(--space-4xl);
+      margin-top: var(--space-4xl);
 
-      > :first-child {
+      figure {
         grid-column: 1 / 6;
+        position: relative;
 
         > * {
           border-radius: var(--radius);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: -2rem;
+          top: -2rem;
+          background: var(--accent);
+          width: 14.5rem;
+          height: 10.25rem;
+          border-radius: var(--radius);
+          z-index: -1;
+        }
+
+        &::before {
+          --square-count: 12;
+          --square-size: 1.75rem;
+
+          --_square-size: var(--square-size, 1rem);
+          --_square-half: calc(var(--square-size) / 2);
+          --_square-sum: calc(var(--square-count) * var(--square-size));
+          z-index: -1;
+          content: "";
+          position: absolute;
+          inset: -4rem auto auto -4.5rem;
+          /*inline-size: calc(var(--square-count) * 1.34rem - .67rem);*/
+          inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
+          aspect-ratio: 1;
+          background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
+          mask:
+            var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+            var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+          /* clip-path: polygon(-3% 0%, 100% 0%, 100% 103%); */
         }
       }
 
