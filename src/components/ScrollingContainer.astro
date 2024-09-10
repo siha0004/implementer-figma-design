@@ -1,7 +1,7 @@
 ---
 import CardProjections from "./CardProjections.astro";
 
-// const { data, cardContent } = Astro.props;
+const { cardData, cardContent } = Astro.props;
 ---
 
 <ul role="list">
@@ -13,7 +13,7 @@ import CardProjections from "./CardProjections.astro";
       </li>
     ))
   } -->
-      <!-- {data.map((projection) => <CardEmployee {projection} />)} -->
+  {cardData.values.map((projection) => <CardProjections {projection} />)}
 
   <!-- <CardProjections icon="balance-sheet" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
   <CardProjections icon="income-statement" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />

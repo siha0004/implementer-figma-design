@@ -1,18 +1,20 @@
 ---
+import { Icon } from "astro-icon/components";
+
 import ScrollingContainer from "./ScrollingContainer.astro";
 import Text from "./Text.astro";
 import Controls from "./Controls.astro";
 
-const projectionsData = await fetch("https://raw.githubusercontent.com/siha0004/frontend-design/main/resources/json/projections.json").then((res) => res.json());
-
+const { data } = Astro.props;
 ---
 
-<section >
+<section>
+  <Icon name="financial" />
   <div class="info">
-    <Text topic_hide="true" heading="Financial Projections"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ex alias ut eius amet eaque vero sed, hic illo soluta tenetur facilis magnam doloribus sunt est sapiente necessitatibus natus pariatur. </Text>
+    <Text topic_hide="true" heading={data.title}> {data.subtitle} </Text>
     <Controls />
   </div>
-  <ScrollingContainer data={projectionsData}/>
+  <ScrollingContainer cardData={data} />
 </section>
 
 <style>
@@ -36,6 +38,10 @@ const projectionsData = await fetch("https://raw.githubusercontent.com/siha0004/
           /* For den til at snappe til centeret af cardet, når man scroller (tydeligst i mobil) */
           scroll-snap-align: center;
         }
+      }
+
+      [data-icon="financial"] {
+        width: 100px;
       }
 
       .info {
