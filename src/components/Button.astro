@@ -1,13 +1,19 @@
 ---
-const { type, link } = Astro.props;
+const { type, link, theme } = Astro.props;
 ---
 
-<a class={"button " + type} href={link}>
+<a class={"button " + type} href={link} data-theme={theme}>
   <slot />
 </a>
 
 <style>
   @layer components {
+    [data-theme="dark"] {
+      --button-sec-bg: var(--color-bg-primary);
+      --button-sec-border-hover: var(--color-bg-primary);
+      --button-sec-color: var(--neutral-900);
+      --button-sec-color-hover: var(--color-bg-primary);
+    }
     .button {
       color: var(--color-button-text-primary);
       text-decoration: none;
@@ -32,17 +38,17 @@ const { type, link } = Astro.props;
     }
 
     .secondary {
-      color: var(--color-button-text-secondary);
-      background-color: var(--color-button-secondary);
+      color: var(--button-sec-color, var(--color-button-text-secondary));
+      background-color: var(--button-sec-bg, var(--color-button-secondary));
 
       &:visited {
         color: var(--color-button-text-secondary);
       }
 
       &:hover {
-        color: var(--color-button-text-primary);
+        color: var(--button-sec-color-hover, var(--color-button-text-primary));
         background-color: transparent;
-        border: 2px solid var(--color-button-secondary);
+        border: 2px solid var(--button-sec-border-hover, var(--color-button-secondary));
       }
     }
 
