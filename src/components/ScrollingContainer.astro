@@ -5,20 +5,7 @@ const { cardData, cardContent } = Astro.props;
 ---
 
 <ul role="list">
-  <!-- {
-    cardContent.map((card) => (
-      <li>
-        <h3>{card.title}</h3>
-        <p>{card.body}</p>
-      </li>
-    ))
-  } -->
   {cardData.values.map((projection) => <CardProjections {projection} />)}
-
-  <!-- <CardProjections icon="balance-sheet" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
-  <CardProjections icon="income-statement" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
-  <CardProjections icon="financial-plan" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." />
-  <CardProjections icon="financial-ratios" title="The Balance Sheet" description="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time." /> -->
 </ul>
 
 <style>

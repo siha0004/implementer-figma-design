@@ -1,9 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 
-// const { values } = Astro.props;
-// const { icon, title, description, link } = values;
-const { icon, title, description, link } = Astro.props;
+const { coreValues } = Astro.props;
+const { icon, title, description, link } = coreValues;
+
 const { data, theme = "light" } = Astro.props;
 ---
 
