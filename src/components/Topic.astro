@@ -1,26 +1,29 @@
 ---
-const { type } = Astro.props;
+const { color } = Astro.props;
 ---
 
-<p class={type}>
+<p data-color={color}>
   <slot />
 </p>
 
 <style>
   @layer components {
+    [data-color="white"] {
+      --topic-bg: var(--neutral-100);
+      --topic-txt: var(--neutral-900);
+    }
+    [data-color="green"] {
+      --topic-bg: var(--accent);
+      --topic-txt: var(--neutral-100);
+    }
     p {
       display: inline;
-      background-color: var(--brand);
+      background-color: var(--topic-bg, var(--brand));
       border-radius: var(--radius-round);
-
       padding: 1px var(--space-s);
+      color: var(--topic-txt, var(--neutral-900));
       text-transform: uppercase;
       letter-spacing: 2.32px;
-    }
-
-    .white {
-      background-color: var(--neutral-100);
-      color: var(--neutral-900);
     }
   }
 </style>
