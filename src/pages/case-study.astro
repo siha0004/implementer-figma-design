@@ -30,13 +30,13 @@ import HeroMain from "../components/HeroMain.astro";
       </ul>
       <Button>Live Preview</Button>
     </header>
-    <article>
+    <article class="flow-space">
       <h2>Project Overview</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
         esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
       </p>
-      <ul>
+      <ul class="list-space">
         <li>It brings the right people together with all the right information and tools to get work done</li>
         <li>We provide operational efficiency, data security, and flexible scale</li>
         <li>Your best work, together in one package that works seamlessly from your computer</li>
@@ -96,9 +96,12 @@ import HeroMain from "../components/HeroMain.astro";
         border-radius: var(--radius);
       }
 
-      article img {
-        padding-inline: 2rem;
-        border-radius: none;
+      article {
+        margin-top: var(--space-5xl);
+        img {
+          padding-inline: var(--space-xl);
+          border-radius: none;
+        }
       }
 
       header {

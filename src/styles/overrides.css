@@ -1,10 +1,32 @@
-.flow {
+.flow-space {
+  --flow-space: 0.5rlh;
+
   > * + * {
-    margin-block-start: var(--flow-space, 1em);
+    margin-block-start: var(--flow-space);
   }
 
   h2 {
-    --flow-space: 2rem;
+    --flow-space: 3rlh;
+  }
+  h3 {
+    --flow-space: 2rlh;
+  }
+
+  p {
+    --flow-space: 1rlh;
+  }
+  ul {
+    --flow-space: 1rlh;
+  }
+
+  img {
+    --flow-space: 1rlh;
+  }
+}
+
+.list-space {
+  li + * {
+    padding-top: 0.5rem;
   }
 }
 
