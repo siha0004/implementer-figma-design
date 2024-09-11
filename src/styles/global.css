@@ -115,6 +115,13 @@
     margin-bottom: var(--space-xs);
   }
 
+  .h2_5 {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 1.5024rem + 1.5896vw, 2.7344rem);
+    font-weight: 600;
+    line-height: 1.16;
+  }
+
   h3,
   .h3 {
     color: var(--color-heading-primary);
