@@ -7,6 +7,8 @@ import SectionCoreValues from "../components/SectionCoreValues.astro";
 import SectionVision from "../components/SectionVision.astro";
 import SectionFAQ from "../components/SectionFAQ.astro";
 
+import hero from "../assets/images/hero-about.jpg";
+
 const employeeData = await fetch("https://raw.githubusercontent.com/siha0004/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 const valuesData = await fetch("https://raw.githubusercontent.com/siha0004/frontend-design/main/resources/json/corevalues.json").then((res) => res.json());
 
@@ -14,7 +16,7 @@ const firstThreeEmployees = employeeData.slice(0, 3);
 ---
 
 <MainLayouts title="About">
-  <HeroMain topic="Team" heading="Creative Services For Boost Your Business Growth" />
+  <HeroMain img={hero} topic="Services" heading="Creative Services For Boost Your Business GrowthThe Consultors" />
   <SectionVision />
   <SectionCoreValues data={valuesData} />
   <SectionEmployee data={firstThreeEmployees} />

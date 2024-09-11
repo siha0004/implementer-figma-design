@@ -6,12 +6,14 @@ import SectionExpect from "../components/SectionExpect.astro";
 import SectionExperience from "../components/SectionExperience.astro";
 import SectionProcess from "../components/SectionProcess.astro";
 import SectionCoreValues from "../components/SectionCoreValues.astro";
+import HeroHome from "../components/HeroHome.astro";
 
 const projectionsData = await fetch("https://raw.githubusercontent.com/siha0004/frontend-design/main/resources/json/projections.json").then((res) => res.json());
 const valuesData = await fetch("https://raw.githubusercontent.com/siha0004/frontend-design/main/resources/json/corevalues.json").then((res) => res.json());
 ---
 
 <MainLayouts title="Home">
+  <HeroHome />
   <SectionExpect />
   <SectionProjections data={projectionsData} />
   <SectionExperience />

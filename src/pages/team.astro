@@ -2,16 +2,12 @@
 import HeroMain from "../components/HeroMain.astro";
 import MainLayouts from "../layouts/MainLayouts.astro";
 import SectionEmployee from "../components/SectionEmployee.astro";
+import hero from "../assets/images/hero-team.jpg";
 
 const employeeData = await fetch("https://raw.githubusercontent.com/siha0004/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 ---
 
 <MainLayouts title="Team">
-  <!-- <HeroMain /> -->
+  <!-- <HeroMain img={hero} topic="Team" heading="The Consultors" /> -->
   <SectionEmployee data={employeeData} />
 </MainLayouts>
-
-<style>
-  @layers components {
-  }
-</style>

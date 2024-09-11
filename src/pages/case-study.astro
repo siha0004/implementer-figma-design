@@ -1,15 +1,16 @@
 ---
 import { Image } from "astro:assets";
-
+import hero from "../assets/images/hero-case.jpg";
 import img1 from "../assets/images/case-image_1.png";
 import img2 from "../assets/images/case-image_2.png";
 
 import MainLayouts from "../layouts/MainLayouts.astro";
 import Button from "../components/Button.astro";
+import HeroMain from "../components/HeroMain.astro";
 ---
 
 <MainLayouts title="Case Study">
-  <!-- HERO -->
+  <HeroMain img={hero} topic="Case Studies single" heading="Taxes & Efficiency" />
   <section>
     <Image src={img1} alt="A description of my image." />
     <header>

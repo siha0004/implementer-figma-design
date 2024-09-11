@@ -7,7 +7,7 @@
   html {
     /********* Variables *********/
 
-    --content-width: 1200px;
+    --content-width: 75rem;
 
     /* Fonts*/
     --font-display: "Cabin", system-ui;
@@ -137,9 +137,9 @@
     font-size: var(--step--1);
   }
 
-  /* p {
-    max-width: 65ch;
-  } */
+  p {
+    max-width: 75ch;
+  }
 
   /************* LINK + BUTTON *************/
   a {
@@ -195,7 +195,7 @@
     }
   }
 
-  section {
+  * + * section {
     padding: var(--space-4xl) 0;
   }
 }

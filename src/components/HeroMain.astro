@@ -1,14 +1,13 @@
 ---
 import { Image } from "astro:assets";
 
-import img1 from "../assets/images/hero-team.jpg";
 import Topic from "./Topic.astro";
 
-const { topic, heading } = Astro.props;
+const { topic, heading, img } = Astro.props;
 ---
 
 <section class="full-bleed">
-  <Image src={img1} alt="Team image" />
+  <Image class="full-bleed" src={img} alt="Team image" />
   <article>
     <Topic>{topic}</Topic>
     <h1>{heading}</h1>
@@ -18,15 +17,18 @@ const { topic, heading } = Astro.props;
 <style>
   @layer components {
     section {
-      display: grid;
+      padding: 0;
 
-      > :is(img, article) {
-        grid-area: 1 / 1;
+      img {
+        grid-row: 1;
       }
+
       article {
-        /* grid-column: content; */
-        /* align-items: center; */
-        max-width: 700px;
+        grid-column: content;
+        grid-row: 1;
+        justify-content: center;
+        align-items: start;
+        max-width: 800px;
         background: var(--neutral-100-85);
         backdrop-filter: blur(5.5px);
         border-radius: var(--radius);
@@ -36,6 +38,7 @@ const { topic, heading } = Astro.props;
         gap: var(--space-xs);
 
         padding: var(--space-3xl) var(--space-4xl);
+        margin: var(--space-5xl) 0;
         z-index: 1;
       }
     }
