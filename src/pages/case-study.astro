@@ -12,24 +12,26 @@ import HeroMain from "../components/HeroMain.astro";
 <MainLayouts title="Case Study">
   <HeroMain img={hero} topic="Case Studies single" heading="Taxes & Efficiency" />
   <section>
-    <Image src={img1} alt="A description of my image." />
-    <header>
-      <ul role="list">
-        <li>
-          <strong>Case Name</strong>
-          <p>Taxes & Efficiency</p>
-        </li>
-        <li>
-          <strong>Category</strong>
-          <p>Business</p>
-        </li>
-        <li>
-          <strong>Date</strong>
-          <p>27th September 2022</p>
-        </li>
-      </ul>
-      <Button>Live Preview</Button>
-    </header>
+    <div>
+      <Image src={img1} alt="A description of my image." />
+      <header>
+        <ul role="list">
+          <li>
+            <strong>Case Name</strong>
+            <p>Taxes & Efficiency</p>
+          </li>
+          <li>
+            <strong>Category</strong>
+            <p>Business</p>
+          </li>
+          <li>
+            <strong>Date</strong>
+            <p>27th September 2022</p>
+          </li>
+        </ul>
+        <Button>Live Preview</Button>
+      </header>
+    </div>
     <article class="flow-space">
       <h2>Project Overview</h2>
       <p>
@@ -69,9 +71,8 @@ import HeroMain from "../components/HeroMain.astro";
 <style>
   @layer components {
     section {
-      --gap: 1rem;
-      --fill: minmax(var(--gap), 1fr);
-      --elements: minmax(0, 8rem);
+      --fill: minmax(0, 2fr);
+      --elements: minmax(0, 1fr);
       --text: minmax(0, 75ch);
       /* --image: minmax(0, 3rem); */
 
@@ -87,15 +88,6 @@ import HeroMain from "../components/HeroMain.astro";
         grid-column: text;
       }
 
-      header {
-        grid-column: elements;
-      }
-
-      img {
-        grid-column: fill;
-        border-radius: var(--radius);
-      }
-
       article {
         margin-top: var(--space-5xl);
         img {
@@ -104,19 +96,64 @@ import HeroMain from "../components/HeroMain.astro";
         }
       }
 
-      header {
-        background: var(--neutral-900);
-        border-radius: var(--radius);
-        padding: var(--space-2xl) var(--space-3xl);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      div {
+        grid-column: fill;
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: repeat(5, auto);
+        gap: var(--space-xl);
 
-        ul {
+        img {
+          grid-column: fill;
+          grid-row: 1 / 5;
+          border-radius: var(--radius);
+        }
+
+        header {
+          grid-column: elements;
+          grid-row: 5 / -1;
+
+          background: var(--neutral-900);
+          border-radius: var(--radius);
+          padding: var(--space-2xl) var(--space-3xl);
           display: flex;
-          gap: var(--space-4xl);
-          color: var(--color-text-secondary);
-          font-size: 16;
+          flex-direction: column;
+          gap: var(--space-xl);
+          container-type: inline-size;
+
+          ul {
+            color: var(--color-text-secondary);
+
+            > * + * {
+              margin-top: var(--space-s);
+            }
+
+            li {
+              display: grid;
+              grid-template-columns: 1fr 2fr;
+              align-items: start;
+            }
+          }
+
+          @media (width > 800px) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            grid-row: 4 / -1;
+
+            ul {
+              display: flex;
+              gap: var(--space-2xl);
+
+              > * + * {
+                margin-top: 0;
+              }
+
+              li {
+                display: block;
+              }
+            }
+          }
         }
       }
     }
