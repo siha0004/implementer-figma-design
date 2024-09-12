@@ -5,36 +5,46 @@ import Text from "../components/Text.astro";
 ---
 
 <section>
-  <div>
+  <Grid2Col />
+  <div class="content order">
     <Text topic="Process" heading="Contact Us. It’s Easy."> Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative. </Text>
-
-    <ul>
+    <ul role="list">
       <Info icon="phone" name="Call Today">+1 800 100 900</Info>
       <Info icon="clock" name="Monday To Friday"> 9AM - 5PM </Info>
       <Info icon="place" name="USA Office"> 195 Devonshire St Boston, MA 02110 </Info>
     </ul>
   </div>
-  <Grid2Col />
 </section>
 
 <style>
   @layer components {
     section {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 2rem;
+      display: flex;
+      flex-direction: column;
 
-      > :first-child {
-        grid-column: 1 / 6;
+      > * {
+        margin-top: var(--space-5xl);
       }
 
-      > :last-child {
-        grid-column: 7 / -1;
+      ul > * + * {
+        margin-top: var(--space-xl);
       }
-      ul {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-xl);
+      @media (width> 700px) {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+
+        .order {
+          order: -1;
+        }
+
+        > :first-child {
+          grid-column: 7 / -1;
+        }
+
+        > :last-child {
+          grid-column: 1 / 6;
+        }
       }
     }
   }
