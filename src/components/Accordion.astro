@@ -4,20 +4,19 @@ const { title } = Astro.props;
 
 <details>
   <summary class="h4">{title}</summary>
-  <article>
-    <slot />
-  </article>
+  <article>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</article>
 </details>
 
 <style>
   details {
     border-bottom: 1px solid var(--color-divider);
-    width: 700px;
+    max-width: 700px;
   }
   /* Summary styling and placement */
   summary {
     display: flex;
     justify-content: space-between;
+    gap: var(--space-xl);
     align-items: start;
     padding: var(--space-m) var(--space-s);
     cursor: pointer;

@@ -25,21 +25,30 @@ const { data, theme = "light" } = Astro.props;
     }
     section {
       background: var(--section-bg, var(--color-bg-secondary));
-    }
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
 
-    div {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xl);
-      /* justify-content: space-between;
-      align-items: end; */
-      margin-bottom: var(--space-2xl);
-    }
+        margin-bottom: var(--space-2xl);
 
-    ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: var(--space-xl);
+        > :last-child {
+          flex-shrink: 0;
+        }
+      }
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--space-xl);
+      }
+      @media (width> 700px) {
+        div {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: end;
+        }
+      }
     }
   }
 </style>
