@@ -24,7 +24,7 @@
       gap: var(--space-l);
       position: relative;
       overflow: clip;
-      margin: var(--space-5xl) 0;
+      margin: var(--space-4xl) 0;
 
       h2 {
         color: var(--color-heading-secondary);
@@ -36,12 +36,12 @@
         z-index: 3;
       }
 
-      /* MANGLER  'container-type: inline-size;' */
-      /* @container (width > 700px) {
-        flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      } */
+      form {
+        display: flex;
+        align-items: center;
+        gap: var(--space-m);
+        z-index: 3;
+      }
 
       &::after {
         content: "";
@@ -81,12 +81,12 @@
         rotate: -45deg;
         opacity: 50%;
       }
-    }
 
-    form {
-      display: flex;
-      align-items: center;
-      gap: var(--space-m);
+      @media (width > 800px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
   }
 </style>
