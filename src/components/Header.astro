@@ -38,18 +38,6 @@
       z-index: 100;
       position: sticky;
     }
-
-    #login_popup {
-      background-color: var(--neutral-900);
-      padding: var(--space-2xl) var(--space-3xl);
-      border-radius: var(--radius);
-
-      display: none;
-      &:popover-open {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-xl);
-      }
       h2 {
         color: var(--color-heading-secondary);
       }
@@ -63,11 +51,43 @@
         input {
         }
       }
-      &::backdrop {
-        background: rgba(0, 0, 0, 0.5);
 
-        backdrop-filter: blur(16px);
+      [popover] {
+      display: none;
+      padding: var(--space-2xl) var(--space-5xl);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+      background: var(--neutral-900);
+      &,
+      &::backdrop {
+        transition:
+          display 0.5s allow-discrete,
+          overlay 0.5s allow-discrete,
+          opacity 0.5s;
+        opacity: 0;
       }
+
+      &::backdrop {
+        background: var(--neutral-900);
+      }
+      &:popover-open {
+        opacity: 1;
+
+        &::backdrop {
+          opacity: 0.8;
+           /* backdrop-filter: blur(16px); */
+        }
+      }
+
+      @starting-style {
+        &:popover-open,
+        &:popover-open::backdrop {
+       opacity: 0;
+       }
+      }
+    }
     }
 
     .header {
