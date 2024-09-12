@@ -32,8 +32,15 @@ const { data } = Astro.props;
 
       .info {
         display: flex;
-        justify-content: space-between;
-        align-items: end;
+        flex-direction: column;
+        gap: var(--space-m);
+
+        @media (width > 800px) {
+          flex-direction: row;
+          gap: var(--space-2xl);
+          justify-content: space-between;
+          align-items: end;
+        }
       }
     }
   }
