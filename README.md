@@ -24,7 +24,7 @@ Pop-over'en nået lige at drille mig lidt, eftersom den ligger som barn af body.
 
 Jeg har levet et nyt component til hver af de billeder som har pseudo elementer bag sig. Kan man gøre det smartere? Meget kode der bliver gentaget, for bare at ændre selve billedet og hvor pseudo-elementerne er placeret
 
-![Themes](readmeassets/image.png)
+![Image komponent](readmeassets/image.png)
 
 ### Responsivitet
 
