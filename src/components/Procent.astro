@@ -3,7 +3,7 @@ const { pct, text } = Astro.props;
 ---
 
 <article>
-  <div class="parent" style="--percent: 25%">
+  <div class="parent" style=`--percent: ${pct}%`>
     <div class="child"></div>
     {pct}%
   </div>

@@ -5,7 +5,7 @@ import Text from "./Text.astro";
 ---
 
 <section class="full-bleed">
-  <div>
+  <div class="content">
     <Text topic="Experience" topicColor="white" heading="More than 25 years of experience">3000+ our clients are insured around the World</Text>
     <div class="pcts">
       <Procent pct="85" text="Consistency" />
@@ -20,15 +20,22 @@ import Text from "./Text.astro";
     section {
       background-color: var(--brand);
 
-      display: grid;
-      grid-template-columns: subgrid;
-
-      div {
+      .content {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: var(--space-2xl);
+
         div.pcts {
           display: flex;
-          gap: var(--space-l);
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: var(--space-3xl);
+        }
+
+        @media (width > 800px) {
+          display: grid;
+          grid-template-columns: 1fr auto;
         }
       }
     }
