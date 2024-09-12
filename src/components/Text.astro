@@ -4,7 +4,7 @@ import Topic from "./Topic.astro";
 const { topic, heading, topic_hide, topicColor, theme } = Astro.props;
 ---
 
-<article data-theme={theme} >
+<article data-theme={theme}>
   <Topic color={topicColor} hide={topic_hide}>{topic}</Topic>
   <h2>{heading}</h2>
 
@@ -23,10 +23,6 @@ const { topic, heading, topic_hide, topicColor, theme } = Astro.props;
     }
     h2 {
       margin-top: var(--space-m);
-    }
-
-    .hide > :first-child {
-      display: none;
     }
   }
 </style>
