@@ -1,47 +1,33 @@
-# Astro Starter Kit: Minimal
+# Refleksioner
 
-```sh
-npm create astro@latest -- --template minimal
-```
+## Proces
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+Første store projekt, jeg har skulle kode selv, så skal være skarpere på min tidsestimering. Har ikke arbejdet helt så meget med fx container-querys, som ønsket. View transitions og små UI animationer generelt, har jeg ikke fået prioriteret højt nok i dette projekt, så det må jeg have til gode til næste gang.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Teknisk
 
-## 🚀 Project Structure
+### Themes
 
-Inside of your Astro project, you'll see the following folders and files:
+Det har været sjovt at arbejde med themes, og er klart en teknik jeg kommer til at bruge fremover. Jeg skulle lige lure, hvordan jeg skulle gøre, når der var andre komponenter inde i det overordnet, som også skulle have en tema-ændring, men fik løst dette. Er dog nysgerrig på om det kan gøres endnu smartere, men det bliver sjovt at arbejde videre med.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+![Themes](readmeassets/theme.png)
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Derudover har jeg lavet semantiske variabler i min global.css (som blot henviser til de primitive), men kan ikke finde ud med mig selv om de semantiske variabler har givet mening eller blot forvirret mig mere. Fx når de bruges til themes skal man holde tungen lige i munden.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Eller måske det blot kan løses med et bedre system for, hvordan jeg navngiver de semantiske variabler.
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Pop over
 
-## 🧞 Commands
+Pop-over'en nået lige at drille mig lidt, eftersom den ligger som barn af body. På body er mit overordnede grid, så den display-none, som ellers er default på pop-over, var allerede blevet overskrevet, så den kunne ses i mit layout, før den var blevet klikket på. Det er noget jeg lige vil skrive mig bag øret til næste gang.
 
-All commands are run from the root of the project, from a terminal:
+### Image-component
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Jeg har levet et nyt component til hver af de billeder som har pseudo elementer bag sig. Kan man gøre det smartere? Meget kode der bliver gentaget, for bare at ændre selve billedet og hvor pseudo-elementerne er placeret
 
-## 👀 Want to learn more?
+![Themes](readmeassets/image.png)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Responsivitet
+
+Hvornår skal man bruge container/media querys? Hvornår giver flex wrap mening? Det er noget af det jeg stadig lige skal finde ud af, da det ikke kommer helt naturligt endnu.
+
+Og så har jeg stadig lidt svært ved at designe i kode - har lettere ved at have et udgangspunkt som jeg bare kopiere - så det er også noget jeg skal øve mig i.

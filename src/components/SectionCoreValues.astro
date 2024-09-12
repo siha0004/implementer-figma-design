@@ -20,8 +20,6 @@ const { data, theme = "light" } = Astro.props;
   @layer components {
     [data-theme="dark"] {
       --section-bg: var(--neutral-900);
-      --section-txt: var(--neutral-100);
-      --section-icon: var(--neutral-100);
     }
     section {
       background: var(--section-bg, var(--color-bg-secondary));
