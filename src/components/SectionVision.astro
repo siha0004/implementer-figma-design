@@ -8,14 +8,14 @@ import Numbers from "./Numbers.astro";
   <div class="info">
     <div>
       <Text topic="OUR VISION" heading="Turn your ideas into reality."> Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps. </Text>
-      <ul class="checkmarks">
+      <ul role="list" class="checkmarks">
         <li>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</li>
         <li>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</li>
       </ul>
     </div>
     <ImageAbout />
   </div>
-  <ul class="numbers">
+  <ul role="list" class="numbers">
     <Numbers number="1128">Successful Work</Numbers>
     <Numbers number="908">Team member</Numbers>
     <Numbers number="258">Happy Customers</Numbers>
@@ -24,22 +24,43 @@ import Numbers from "./Numbers.astro";
 </section>
 
 <style>
-     section {
+  @layer components {
+    section {
       display: flex;
       flex-direction: column;
       gap: var(--space-l);
 
       .info {
-display: flex;
-gap: var(--space-m);
-      align-items: start;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-m);
+        align-items: start;
 
+        > :last-child {
+          margin-top: var(--space-4xl);
+        }
+
+        @media (width> 700px) {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          gap: 2rem;
+
+          > :first-child {
+            grid-column: 1 / 6;
+          }
+
+          > :last-child {
+            grid-column: 7 / -1;
+          }
+        }
       }
 
-.numbers {
-    display: flex;
-justify-content: space-around;
-}
+      .numbers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-3xl);
+        justify-content: space-around;
+      }
     }
   }
 </style>

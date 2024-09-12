@@ -2,18 +2,18 @@
 const { number } = Astro.props;
 ---
 
-<div>
+<li>
   <h3>
     {number}+
   </h3>
   <p>
     <slot />
   </p>
-</div>
+</li>
 
 <style>
   @layer components {
-    div {
+    li {
       display: flex;
       flex-direction: column;
       align-items: center;
