@@ -6,92 +6,112 @@ import CardHero from "./CardHero.astro";
 ---
 
 <section class="full-bleed">
-  <article>
-    <h1>Adam Buschemia Business Consultant</h1>
-    <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
-    <Button theme="dark" type="secondary">Book a Meeting</Button>
+  <article class="full-bleed">
+    <header>
+      <h1>Adam Buschemia Business Consultant</h1>
+      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <Button theme="dark" type="secondary">Book a Meeting</Button>
+    </header>
+    <figure>
+      <Image src={hero} alt="A description of my image." />
+    </figure>
   </article>
-  <Image src={hero} alt="A description of my image." />
+  <ul role="list">
+    <CardHero title="Finance & Restructuring" btn_text="Our Services" />
+    <CardHero title="Our Approach" btn_text="More About " />
+    <CardHero title="Consultalk Result" btn_text="Explore Our Solution" />
+  </ul>
 </section>
-<ul role="list">
-  <CardHero title="Finance & Restructuring" btn_text="Our Services" />
-  <CardHero title="Our Approach" btn_text="More About " />
-  <CardHero title="Consultalk Result" btn_text="Explore Our Solution" />
-</ul>
 
 <style>
   @layer components {
     section {
-      padding: 0;
-      margin-bottom: var(--space-m);
-      background: var(--neutral-900);
-      display: grid;
-      grid-template-columns: [a] 1fr [b] calc(var(--content-width) / 2) [c-start] calc(var(--content-width) / 2) 1fr [c-end];
-
+      padding-top: 0;
       article {
-        grid-column: b;
-        color: var(--color-text-secondary);
+        padding: 0;
+        margin-bottom: var(--space-m);
+        background: var(--neutral-900);
+        display: grid;
+        grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, calc(var(--content-width) / 2))) minmax(1rem, 1fr);
+        grid-row: 1 / 4;
+        header {
+          grid-column: 2 / 3;
+          color: var(--color-text-secondary);
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-m);
+          padding: var(--space-3xl) 0;
+          z-index: 2;
+          position: relative;
+
+          h1 {
+            color: var(--color-heading-secondary);
+          }
+
+          &::before {
+            --square-count: 6;
+            --square-size: 1.34rem;
+
+            --_square-size: var(--square-size, 1rem);
+            --_square-half: calc(var(--square-size) / 2);
+            --_square-sum: calc(var(--square-count) * var(--square-size));
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0rem -0.5rem auto auto;
+            /*inline-size: calc(var(--square-count) * 1.34rem - .67rem);*/
+            inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
+            mask:
+              var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+              var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+            /* clip-path: polygon(-3% 0%, 100% 0%, 100% 103%); */
+          }
+          &::after {
+            --square-count: 8;
+            --square-size: 1.34rem;
+
+            --_square-size: var(--square-size, 1rem);
+            --_square-half: calc(var(--square-size) / 2);
+            --_square-sum: calc(var(--square-count) * var(--square-size));
+            content: "";
+            position: absolute;
+            inset: auto -4rem auto -16rem;
+
+            /*inline-size: calc(var(--square-count) * 1.34rem - .67rem);*/
+            inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
+            mask:
+              var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+              var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+            /* clip-path: polygon(-3% 0%, 100% 0%, 100% 103%); */
+          }
+        }
+
+        figure {
+          grid-column: 3 / 5;
+          img {
+            z-index: 3;
+            width: 50svw;
+            min-height: 28rem;
+            object-fit: cover;
+          }
+        }
+      }
+      ul {
+        grid-row: 3 / 5;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: var(--space-m);
-        padding: var(--space-5xl) 0;
-        position: relative;
-
-        h1 {
-          color: var(--color-heading-secondary);
-        }
-
-        &::before {
-          --square-count: 6;
-          --square-size: 1.34rem;
-
-          --_square-size: var(--square-size, 1rem);
-          --_square-half: calc(var(--square-size) / 2);
-          --_square-sum: calc(var(--square-count) * var(--square-size));
-          content: "";
-          position: absolute;
-          inset: 0rem -0.5rem auto auto;
-          /*inline-size: calc(var(--square-count) * 1.34rem - .67rem);*/
-          inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
-          aspect-ratio: 1;
-          background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
-          mask:
-            var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
-            var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
-          /* clip-path: polygon(-3% 0%, 100% 0%, 100% 103%); */
-        }
-        &::after {
-          --square-count: 8;
-          --square-size: 1.34rem;
-
-          --_square-size: var(--square-size, 1rem);
-          --_square-half: calc(var(--square-size) / 2);
-          --_square-sum: calc(var(--square-count) * var(--square-size));
-          content: "";
-          position: absolute;
-          inset: auto -4rem auto -16rem;
-
-          /*inline-size: calc(var(--square-count) * 1.34rem - .67rem);*/
-          inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
-          aspect-ratio: 1;
-          background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
-          mask:
-            var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
-            var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
-          /* clip-path: polygon(-3% 0%, 100% 0%, 100% 103%); */
-        }
-      }
-
-      img {
-        grid-column: c;
         z-index: 2;
+
+        @media (width < 700px) {
+          flex-direction: column;
+          grid-row: 4 / 5;
+        }
       }
-    }
-    ul {
-      /* grid-row: 2; */
-      display: flex;
-      flex-direction: row;
-      gap: var(--space-m);
     }
   }
 </style>

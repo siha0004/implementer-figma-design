@@ -21,14 +21,15 @@ const { topic, heading, img } = Astro.props;
 
       img {
         grid-row: 1;
+        min-height: 20rem;
+        object-fit: cover;
       }
 
       article {
         grid-column: content;
         grid-row: 1;
-        justify-content: center;
-        align-items: start;
-        max-width: 800px;
+        place-self: center start;
+
         background: var(--neutral-100-85);
         backdrop-filter: blur(5.5px);
         border-radius: var(--radius);
@@ -38,7 +39,6 @@ const { topic, heading, img } = Astro.props;
         gap: var(--space-xs);
 
         padding: var(--space-3xl) var(--space-4xl);
-        margin: var(--space-5xl) 0;
         z-index: 1;
       }
     }
