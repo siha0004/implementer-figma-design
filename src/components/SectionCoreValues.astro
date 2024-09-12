@@ -29,14 +29,17 @@ const { data, theme = "light" } = Astro.props;
 
     div {
       display: flex;
-      justify-content: space-between;
-      align-items: end;
+      flex-direction: column;
+      gap: var(--space-xl);
+      /* justify-content: space-between;
+      align-items: end; */
+      margin-bottom: var(--space-2xl);
     }
 
     ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2xl);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-xl);
     }
   }
 </style>
