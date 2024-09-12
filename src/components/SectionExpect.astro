@@ -19,7 +19,14 @@ import ImageHome from "./ImageHome.astro";
   @layer components {
     section {
       display: flex;
-      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-2xl);
+      justify-content: center;
+
+      > * {
+        flex-basis: calc(var(--content-width) / 2 - var(--space-2xl));
+      }
     }
   }
 </style>
